@@ -1,12 +1,99 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <link rel="stylesheet" type="text/css"  href="css/style.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/materialize/css/materialize.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/materialize/css/materialize.min.css" type="text/css"/>
+        <title>Control Plain</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+
+            #menuContent{
+                height: 768px;
+                width: 300px;
+                display: none;
+                float:left; 
+                box-shadow: 3px 0px 3px 0px rgba(0,0,0,0.2);
+            }
+            .page-footer{
+                position:fixed;
+                bottom:0;
+                width:100%;
+            }
+            .botao{
+
+                width:290px;
+                margin-left: 40px;
+                margin: 3px;
+
+
+            }
+
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"/>
+        <script type="text/javascript" src="css/scripts.js"/>
+
+        <nav>
+            <div class="nav-wrapper indigo lighten-3">
+                <img src="css/img/logo_white.png" class="brand-logo center"/>
+                <ul id="nav-mobile" class="left">
+                    <li>  <a id="menu" href="#">
+                            <i class="material-icons">dehaze</i>
+                        </a>   
+                    </li>
+                </ul>
+                <ul id="nav-mobile" class="right hide-on-small-only">
+                    <li>  <a id="menu" href="#">Users</a></li>  
+                    <li>  <a id="menu" href="#">Settings</a>   
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+        <div id="menuContent">
+
+            <div>
+                <a class="waves-effect waves-light btn  botao z-depth-3">Clientes</a>
+            </div>
+        </div>
     </h:body>
+    <footer class="page-footer indigo lighten-3">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Control Plain</h5>
+                    <p>
+                        Lorem ipsum vel pulvinar quam consectetur turpis blandit venenatis, justo commodo in sed ornare euismod praesent, dolor sagittis feugiat donec feugiat lacinia urna. 
+                        tempus sem ligula scelerisque elementum erat cubilia egestas potenti, ante tincidunt vitae mi gravida ad per, inceptos donec purus vivamus lacus tellus quisque. 
+                        eros proin iaculis, curabitur. 
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
 </html>
 
