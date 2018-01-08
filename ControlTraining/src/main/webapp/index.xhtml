@@ -52,7 +52,10 @@
                     </li>
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-small-only">
-                    <li>  <a id="menu" href="#">Users</a></li>  
+
+                    <h:form>
+                        <h:commandLink id="menu" action="#{BeanUsers.novo}">Users</h:commandLink>
+                    </h:form>
                     <li>  <a id="menu" href="#">Settings</a>   
                     </li>
                 </ul>
@@ -66,34 +69,6 @@
             </div>
         </div>
     </h:body>
-    <footer class="page-footer indigo lighten-3">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Control Plain</h5>
-                    <p>
-                        Lorem ipsum vel pulvinar quam consectetur turpis blandit venenatis, justo commodo in sed ornare euismod praesent, dolor sagittis feugiat donec feugiat lacinia urna. 
-                        tempus sem ligula scelerisque elementum erat cubilia egestas potenti, ante tincidunt vitae mi gravida ad per, inceptos donec purus vivamus lacus tellus quisque. 
-                        eros proin iaculis, curabitur. 
-                    </p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2018 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
+
 </html>
 
