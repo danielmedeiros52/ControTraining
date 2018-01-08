@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="stylesheet" href="css/materialize/css/materialize.min.css" type="text/css"/>
-        <title>Control Plain</title>
+        <link rel="stylesheet" href="css/materialize/css/materialize.min.css" type="text/css"/>
+        <title>Listar Usuarios</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
@@ -50,18 +51,13 @@
                         </a>   
                     </li>
                 </ul>
-                <ul id="nav-mobile" class="right">
+                <ul id="nav-mobile" class="right hide-on-small-only">
 
-                    <h:form>
-                        <h:commandLink id="menu" action="#{BeanUsers.listar}">Users</h:commandLink>
-                    </h:form>
-                    
-                </ul>
-                <ul id="nav-mobile" class="right">
-                
-                    <li>  <a  href="#">Settings</a>   
+                  
+                    <li>  <a id="menu" href="#">Settings</a>   
                     </li>
                 </ul>
+
             </div>
         </nav>
         <div id="menuContent">
@@ -70,7 +66,16 @@
                 <a class="waves-effect waves-light btn  botao z-depth-3">Clientes</a>
             </div>
         </div>
+        
+        
+ <h:form>
+                        <h:commandLink id="menu" action="#{BeanUsers.cadastrar}">Cadastrar Novo Usuario</h:commandLink>
+                    </h:form>
+        
+        
+        
+        
+        
     </h:body>
 
 </html>
-

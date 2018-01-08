@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" type="text/css"  href="css/style.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/materialize/css/materialize.min.css" type="text/css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Cadastro de Usuários</title>
+        <style>
+
+            #menuContent{
+                height: 768px;
+                width: 300px;
+                display: none;
+                float:left; 
+                box-shadow: 3px 0px 3px 0px rgba(0,0,0,0.2);
+            }
+            .page-footer{
+                position:fixed;
+                bottom:0;
+                width:100%;
+            }
+            .botao{
+
+                width:290px;
+                margin-left: 40px;
+                margin: 3px;
+
+
+            }
+
+        </style>
+    </h:head>
+    <h:body>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"/>
+        <script type="text/javascript" src="../css/scripts.js"/>
+
+        <nav>
+            <div class="nav-wrapper indigo lighten-3 ">
+                <img src="../css/img/logo_white.png" class="brand-logo center"/>
+                <ul id="nav-mobile" class="left">
+                    <li>  <a id="menu" href="#">
+                            <i class="material-icons">dehaze</i>
+                        </a>   
+                    </li>
+                </ul>
+                <ul id="nav-mobile" class="right hide-on-small-only">
+
+
+                    <li>  <a id="menu" href="#">Settings</a>   
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+        <div id="menuContent">
+
+            <div>
+                <a class="waves-effect waves-light btn  botao z-depth-3">Clientes</a>
+            </div>
+        </div>
+  
+        <div class="row center center-align">
+            <div class="col s12 m6">
+                <div class="card">
+                     <span class="card-title">Cadastro de Usuários</span>
+                <h:form id="cadastro">
+
+
+
+
+                    <h:messages />
+                    <h:inputHidden value="#{BeanUsers.usuario.id}" />
+                    <h:inputHidden value="#{BeanUsers.usuario.ativo}" />
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Nome:" for="nome" />
+                        <h:inputText id="nome" label="Nome"
+                                     value="#{BeanUsers.usuario.nome}" size="30" maxlength="30"
+                                     required="true" requiredMessage="Você não tem nome?">
+                            <f:validateLength minimum="10" maximum="30" />
+                        </h:inputText>
+                        <h:outputLabel  value="Ocupação" for="office" />
+                        <h:selectOneMenu id="office" styleClass="input-field" value="">
+                            <f:selectItem itemValue="Implatador" itemLabel="Implantador" />
+                            <f:selectItem itemValue="Gerente" itemLabel="Gerente" />
+                            <f:selectItem itemValue="Outros" itemLabel="Outros" />
+                        </h:selectOneMenu>
+                        <h:outputLabel value="Data Nascimento:" for="data" />
+                        <h:inputText id="data" label="Data Nascimento"
+                                     value="#{BeanUsers.usuario.birht}" size="10" maxlength="10"
+                                     >
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:inputText>
+
+                        <h:outputLabel value="Celular:" for="celular" />
+                        <h:inputText id="celular" label="Celular"
+                                     value="#{BeanUsers.usuario.celular}" size="10" />
+
+                        <h:outputLabel value="e-Mail:" for="email" />
+                        <h:panelGroup>
+                            <h:inputText id="email" label="e-Mail"
+                                         value="#{BeanUsers.usuario.email}" size="50" maxlength="50"
+                                         required="true" validatorMessage="e-mail inválido">
+                                <f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+                            </h:inputText>
+                            <h:message for="email" />
+                        </h:panelGroup>
+
+
+                        <h:outputLabel value="Login:" for="login" />
+                        <h:inputText id="login" label="Login"
+                                     value="#{BeanUsers.usuario.login}" size="15" maxlength="15"
+                                     required="true"
+                                     validatorMessage="Login deve ter no mínimo 5 e no máximo 15 caracteres e só pode ter os símbolos '.' e '_'.">
+                            <f:validateRegex pattern="([a-z]|[0-9]|[.]|[_]){5,15}" />
+                        </h:inputText>
+
+                        <h:outputLabel value="Senha:" for="senha" />
+                        <h:inputSecret id="senha" label="Senha"
+                                       value="#{BeanUsers.usuario.senha}" size="10" maxlength="10"
+                                       required="true" redisplay="true" />
+
+                        <h:outputLabel value="Confirmar Senha:" for="confirmarsenha" />
+                        <h:inputSecret id="confirmarsenha" label="Confirmar Senha"
+                                       value="#{BeanUsers.confirmarSenha}" size="10" maxlength="10"
+                                       required="true" redisplay="true" />
+                    </h:panelGrid>
+
+                    <h:commandButton action="#{BeanUsers.salvar}" class="waves-effect waves-light btn  botao z-depth-3 center center-align" value="Salvar" />
+                </h:form>
+            </div>
+        </div>
+        </div>
+
+    </h:body>
+</html>

@@ -17,10 +17,18 @@ public class BeanUsers {
     private Users usuario = new Users ();
 	private String confirmarSenha;
 
-	public String novo() {
+        public String listar() {
 		this.usuario = new Users();
 		this.usuario.setAtivo(true);
-		return "/publico/usuario";
+		return "/publico/users";
+	}
+        
+        
+        
+	public String cadastrar() {
+		this.usuario = new Users();
+		this.usuario.setAtivo(true);
+		return "/publico/cadUsers";
 	}
 
 	public String salvar() {
@@ -28,7 +36,7 @@ public class BeanUsers {
 
 		String senha = this.usuario.getSenha();
 		if (!senha.equals(this.confirmarSenha)) {
-			FacesMessage facesMessage = new FacesMessage("A senha não foi confirmada corretamente");
+			FacesMessage facesMessage = new FacesMessage("A senha nao foi confirmada corretamente");
 			context.addMessage(null, facesMessage);
 			return null;
 		}
