@@ -21,11 +21,7 @@
                 float:left; 
                 box-shadow: 3px 0px 3px 0px rgba(0,0,0,0.2);
             }
-            .page-footer{
-                position:fixed;
-                bottom:0;
-                width:100%;
-            }
+
             .botao{
 
                 width:290px;
@@ -33,6 +29,36 @@
                 margin: 3px;
 
 
+            }
+            .box{
+
+                width: 70%;
+                box-shadow: 1px 2px 3px 3px rgba(0,0,1,0.6);
+                height:300px;
+                left: 50%;
+                position: absolute;
+                transform: translateX(-50%);
+
+
+            }
+            .divDados{
+                width: 70%;
+                left: 50%;
+                transform: translateX(21%);
+                
+            }
+            .divCima{
+                border-radius: 8px 8px 0 0;
+                width: 100%;
+                max-height: 45px;
+                text-align: center;
+            }
+            .divBaixo{
+                border-radius: 0 0 5px 5px;
+                width: 100%;
+                height: 7px;
+                -webkit-box-shadow: 0 4px 2px -2px grey;
+                
             }
 
         </style>
@@ -71,37 +97,47 @@
         <h:form>
             <h:commandLink id="menu" action="#{BeanUsers.cadastrar}">Cadastrar Novo Usuario</h:commandLink>
         </h:form>
-        <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" >
-           
+        <div class="divDados  grey lighten-3">
+            <div class="divCima indigo lighten-2">
+                <h4 class="white-text">Usuários</h4>
+            </div>
+            <h3>AAAAAAAAA</h3>
+            <div class="divBaixo indigo lighten-2"></div>
+        </div>
+        <div class="box">
 
-
-            <h:column>
-                <f:facet name="header">ativo</f:facet>
-                    #{usuario.ativo}
-            </h:column> 
-
-                 <h:column>
-                <f:facet name="header">Cargo</f:facet>
-                    #{usuario.office}
-            </h:column> 
-
-                 <h:column>
-                <f:facet name="header">Telefone</f:facet>
-                    #{usuario.celular}
-            </h:column> 
-            <h:column>
-                <f:facet name="header">Nome</f:facet>
-                    #{usuario.nome}
-            </h:column> 
-            <h:column>
-                <f:facet name="header">E-mail</f:facet>
-                    #{usuario.email}
-            </h:column> 
-
-        </h:dataTable>
+            <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped  highlight" >
 
 
 
+                <h:column>
+                    <f:facet name="header">ativo</f:facet>
+                        #{usuario.ativo}
+                </h:column> 
+
+                <h:column>
+                    <f:facet name="header">Cargo</f:facet>
+                        #{usuario.office}
+                </h:column> 
+
+                <h:column>
+                    <f:facet name="header">Telefone</f:facet>
+                        #{usuario.celular}
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                        #{usuario.nome}
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">E-mail</f:facet>
+                        #{usuario.email}
+                </h:column> 
+
+            </h:dataTable>
+
+
+
+        </div>
     </h:body>
 
 </html>
