@@ -44,7 +44,7 @@
 
         <nav>
             <div class="nav-wrapper indigo lighten-3">
-                <img src="css/img/logo_white.png" class="brand-logo center"/>
+                <h:graphicImage value="#{resource['imagens:logo_white.png']}" class="brand-logo center"/>
                 <ul id="nav-mobile" class="left">
                     <li>  <a id="menu" href="#">
                             <i class="material-icons">dehaze</i>
@@ -53,7 +53,7 @@
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-small-only">
 
-                  
+
                     <li>  <a id="menu" href="#">Settings</a>   
                     </li>
                 </ul>
@@ -66,16 +66,42 @@
                 <a class="waves-effect waves-light btn  botao z-depth-3">Clientes</a>
             </div>
         </div>
-        
-        
- <h:form>
-                        <h:commandLink id="menu" action="#{BeanUsers.cadastrar}">Cadastrar Novo Usuario</h:commandLink>
-                    </h:form>
-        
-        
-        
-        
-        
+
+        <h:messages />
+        <h:form>
+            <h:commandLink id="menu" action="#{BeanUsers.cadastrar}">Cadastrar Novo Usuario</h:commandLink>
+        </h:form>
+        <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" >
+           
+
+
+            <h:column>
+                <f:facet name="header">ativo</f:facet>
+                    #{usuario.ativo}
+            </h:column> 
+
+                 <h:column>
+                <f:facet name="header">Cargo</f:facet>
+                    #{usuario.office}
+            </h:column> 
+
+                 <h:column>
+                <f:facet name="header">Telefone</f:facet>
+                    #{usuario.celular}
+            </h:column> 
+            <h:column>
+                <f:facet name="header">Nome</f:facet>
+                    #{usuario.nome}
+            </h:column> 
+            <h:column>
+                <f:facet name="header">E-mail</f:facet>
+                    #{usuario.email}
+            </h:column> 
+
+        </h:dataTable>
+
+
+
     </h:body>
 
 </html>

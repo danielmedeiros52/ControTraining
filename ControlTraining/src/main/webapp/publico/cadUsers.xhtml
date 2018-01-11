@@ -40,7 +40,7 @@
 
         <nav>
             <div class="nav-wrapper indigo lighten-3 ">
-                <img src="../css/img/logo_white.png" class="brand-logo center"/>
+                 <h:graphicImage value="#{resource['imagens:logo_white.png']}" class="brand-logo center"/>
                 <ul id="nav-mobile" class="left">
                     <li>  <a id="menu" href="#">
                             <i class="material-icons">dehaze</i>
@@ -84,7 +84,7 @@
                             <f:validateLength minimum="10" maximum="30" />
                         </h:inputText>
                         <h:outputLabel  value="Ocupação" for="office" />
-                        <h:selectOneMenu id="office" styleClass="input-field" value="">
+                        <h:selectOneMenu id="office" styleClass="input-field" value="#{BeanUsers.usuario.office}">
                             <f:selectItem itemValue="Implatador" itemLabel="Implantador" />
                             <f:selectItem itemValue="Gerente" itemLabel="Gerente" />
                             <f:selectItem itemValue="Outros" itemLabel="Outros" />
