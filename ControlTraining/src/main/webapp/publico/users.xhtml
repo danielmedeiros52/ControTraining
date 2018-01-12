@@ -31,21 +31,23 @@
 
             }
             .box{
-
+                border-radius: 8px 8px 6px 6px;
                 width: 70%;
-                box-shadow: 1px 2px 3px 3px rgba(0,0,1,0.6);
+                box-shadow: 1px 2px 3px 0.5px rgba(0,0,1,0.6);
                 height:300px;
                 left: 50%;
                 position: absolute;
                 transform: translateX(-50%);
-
+                margin:  10px;
 
             }
             .divDados{
                 width: 70%;
                 left: 50%;
-                transform: translateX(21%);
-                
+                transform: translateX(22%);
+                box-shadow: 1px 2px 3px 0.5px rgba(0,0,1,0.6);  
+                border-radius: 8px 8px 6px 6px;
+                height: 100px;
             }
             .divCima{
                 border-radius: 8px 8px 0 0;
@@ -58,7 +60,26 @@
                 width: 100%;
                 height: 7px;
                 -webkit-box-shadow: 0 4px 2px -2px grey;
-                
+                position:fixed;
+                bottom:0;
+            }
+            .dados{
+                width: 100%;
+                height: 50px;
+
+            }
+
+            .fixed-action-btn{
+
+
+                bottom: 15px;
+            }
+            .btn-floating.btn-large {
+                width: 45px;
+                height: 45px;
+            }
+            .btn-floating.btn-large i {
+                line-height: 45px;
             }
 
         </style>
@@ -66,7 +87,7 @@
     <h:body>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"/>
-        <script type="text/javascript" src="css/scripts.js"/>
+        <script type="text/javascript" src="#{resource['js:materialize.min.js']}"/>
 
         <nav>
             <div class="nav-wrapper indigo lighten-3">
@@ -89,29 +110,40 @@
         <div id="menuContent">
 
             <div>
-                <a class="waves-effect waves-light btn  botao z-depth-3">Clientes</a>
+                <a class="waves-effect btn  right-aligned indigo lighten-2 z-depth-3">Clientes</a>
             </div>
         </div>
 
         <h:messages />
-        <h:form>
-            <h:commandLink id="menu" action="#{BeanUsers.cadastrar}">Cadastrar Novo Usuario</h:commandLink>
-        </h:form>
         <div class="divDados  grey lighten-3">
             <div class="divCima indigo lighten-2">
                 <h4 class="white-text">Usuários</h4>
             </div>
-            <h3>AAAAAAAAA</h3>
+            <div class="dados">
+                <div class="fixed-action-btn horizontal">
+                    <a class="btn-floating btn-large indigo lighten-4 ">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul>
+                        <li><a class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+                        <li><a class="btn-floating red"><i class="material-icons">delete</i></a></li>
+                        <li><h:form>
+                                <h:commandLink id="menu" styleClass="btn-floating green" action="#{BeanUsers.cadastrar}"><i class="material-icons">add</i></h:commandLink>
+                            </h:form></li>
+                    </ul>
+                </div>
+            </div>
             <div class="divBaixo indigo lighten-2"></div>
         </div>
         <div class="box">
 
+            <div class="divCima indigo lighten-2" style="height: 10px"></div>
             <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped  highlight" >
 
 
 
                 <h:column>
-                    <f:facet name="header">ativo</f:facet>
+                    <f:facet name="header">Ativo</f:facet>
                         #{usuario.ativo}
                 </h:column> 
 
