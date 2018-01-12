@@ -4,30 +4,23 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <link rel="stylesheet" type="text/css"  href="css/style.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-        <link rel="stylesheet" href="css/materialize/css/materialize.min.css" type="text/css"/>
+        <link rel="stylesheet" href="#{resource['css:materialize.min.css']}" type="text/css"/>
         <link rel="stylesheet" href="#{resource['css:style.css']}" type="text/css"/>
-        <title>Listar Usuarios</title>
+        <title>Usuários</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <style>
-
-
-        </style>
     </h:head>
     <h:body>
-
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"/>
         <script type="text/javascript" src="#{resource['js:materialize.min.js']}"/>
-
         <nav>
             <div class="nav-wrapper indigo lighten-3">
                 <h:graphicImage value="#{resource['imagens:logo_white.png']}" class="brand-logo center"/>
                 <ul id="nav-mobile" class="left">
                     <li>  <a id="menu" href="#">
-                            <i class="material-icons">dehaze</i>
+                            <i class="material-icons">home</i>
                         </a>   
                     </li>
                 </ul>
@@ -40,12 +33,7 @@
 
             </div>
         </nav>
-        <div id="menuContent">
 
-            <div>
-                <a class="waves-effect btn  right-aligned indigo lighten-2 z-depth-3">Clientes</a>
-            </div>
-        </div>
 
         <h:messages />
         <div class="divDados  grey lighten-3">
@@ -73,7 +61,7 @@
             <div class="divCima indigo lighten-2" style="height: 10px"></div>
             <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped  highlight" >
 
-           
+
 
                 <h:column>
                     <f:facet name="header">Ativo</f:facet>
