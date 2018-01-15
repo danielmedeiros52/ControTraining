@@ -4,12 +4,14 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="stylesheet" href="#{resource['css:materialize.min.css']}" type="text/css"/>
         <link rel="stylesheet" href="#{resource['css:style.css']}" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Cadastro de Usuários</title>
+
+
+
     </h:head>
     <h:body>
         <script type="text/javascript" src="#{resource['js:jquery-3.2.1.min.js']}"/>
@@ -18,12 +20,7 @@
         <nav>
             <div class="nav-wrapper indigo lighten-3 ">
                 <h:graphicImage value="#{resource['imagens:logo_white.png']}" class="brand-logo center"/>
-                <ul id="nav-mobile" class="left">
-                    <li>  <a id="menu" href="#">
-                            <i class="material-icons">dehaze</i>
-                        </a>   
-                    </li>
-                </ul>
+
                 <ul id="nav-mobile" class="right hide-on-small-only">
 
 
@@ -51,11 +48,11 @@
                         <i class="material-icons">menu</i>
                     </a>
                     <ul>
-                        <li><a class="btn-floating red"><i class="material-icons">delete</i></a></li>
-                        <li><a class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+                        <li><a class="btn-floating purple darken-4" href="../index.jsf"><i class="material-icons">home</i></a></li>
                         <li><h:form>
-                                <h:commandLink id="menu" styleClass="btn-floating green" action="#{BeanUsers.cadastrar}"><i class="material-icons">add</i></h:commandLink>
+                                <h:commandLink id="menu" styleClass="btn-floating blue darken-1" action="#{BeanUsers.users()}"><i class="material-icons">arrow_back</i></h:commandLink>
                             </h:form></li>
+                        <li><a class="btn-floating yellow darken-1"><i class="material-icons">attach_file</i></a></li>
                     </ul>
                 </div>
             </div>
@@ -74,74 +71,74 @@
                         <h:inputHidden value="#{BeanUsers.usuario.id}" />
                         <h:inputHidden value="#{BeanUsers.usuario.ativo}" />
                         <div class="centroListar">
-                        <div class="input-field col s6"> 
-                            <h:outputLabel value="Nome:" for="nome" />
-                            <h:inputText id="nome" label="nome" styleClass="input-field "
-                                         value="#{BeanUsers.usuario.nome}" size="35" maxlength="30"
-                                         required="true" requiredMessage="Você não tem nome?">
-                                <f:validateLength minimum="10" maximum="30" />
-                            </h:inputText>
-                        </div>
-                        <div class="    col s6">
-                            <h:outputLabel  value="Ocupação" for="office" />
-                            <h:selectOneMenu id="office"  value="#{BeanUsers.usuario.office}">
-                                <f:selectItem itemValue="Implatador" itemLabel="Implantador" />
-                                <f:selectItem itemValue="Gerente" itemLabel="Gerente" />
-                                <f:selectItem itemValue="Outros" itemLabel="Outros" />
-                            </h:selectOneMenu>
-                        </div><div class="input-field col s6">
-                            <h:outputLabel value="Data Nascimento:" for="data" />
-                            <h:inputText id="data" label="Data Nascimento" styleClass="datepicker"
-                                         value="#{BeanUsers.usuario.birht}" size="10" maxlength="10"
-                                         >
-                                <f:convertDateTime pattern="dd/MM/yyyy" />
-                            </h:inputText>
-                        </div>
-                        <div class="input-field col s6">
-                            <h:outputLabel value="Celular:" for="celular" />
-                            <h:inputText id="celular" label="Celular"
-                                         value="#{BeanUsers.usuario.celular}" size="10" />
-                        </div>
-                        <div class="input-field col s6">
-                            <h:outputLabel value="e-Mail:" for="email" />
-                            <h:panelGroup>
-                                <h:inputText id="email" label="e-Mail"
-                                             value="#{BeanUsers.usuario.email}" size="50" maxlength="50"
-                                             required="true" validatorMessage="e-mail inválido">
-                                    <f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+                            <div class="input-field col s6"> 
+                                <h:outputLabel value="Nome:" for="nome" />
+                                <h:inputText id="nome" label="nome" styleClass="input-field "
+                                             value="#{BeanUsers.usuario.nome}" size="35" maxlength="30"
+                                             required="true" requiredMessage="Você não tem nome?">
+                                    <f:validateLength minimum="10" maximum="30" />
                                 </h:inputText>
-                                <h:message for="email" />
-                            </h:panelGroup>
-                        </div>
-                        <div class="input-field col s6">
-                            <h:outputLabel value="Login:" for="login" />
-                            <h:inputText id="login" label="Login"
-                                         value="#{BeanUsers.usuario.login}" size="15" maxlength="15"
-                                         required="true"
-                                         validatorMessage="Login deve ter no mínimo 5 e no máximo 15 caracteres e só pode ter os símbolos '.' e '_'.">
-                                <f:validateRegex pattern="([a-z]|[0-9]|[.]|[_]){5,15}" />
-                            </h:inputText>
-                        </div>
-                        <div class="input-field col s6">
-                            <h:outputLabel value="Senha:" for="senha" />
-                            <h:inputSecret id="senha" label="Senha"
-                                           value="#{BeanUsers.usuario.senha}" size="10" maxlength="10"
-                                           required="true" redisplay="true" />
-                        </div><div class="input-field col s6">
-                            <h:outputLabel value="Confirmar Senha:" for="confirmarsenha" />
-                            <h:inputSecret id="confirmarsenha" label="Confirmar Senha"
-                                           value="#{BeanUsers.confirmarSenha}" size="10" maxlength="10"
-                                           required="true" redisplay="true" />
-                        </div>
+                            </div>
+                            <div class="    col s6">
+                                <h:outputLabel  value="Ocupação" for="office" />
+                                <h:selectOneMenu id="office"  value="#{BeanUsers.usuario.office}">
+                                    <f:selectItem itemValue="Implatador" itemLabel="Implantador" />
+                                    <f:selectItem itemValue="Gerente" itemLabel="Gerente" />
+                                    <f:selectItem itemValue="Outros" itemLabel="Outros" />
+                                </h:selectOneMenu>
+                            </div><div class="input-field col s6">
+                                <h:outputLabel value="Data Nascimento:" for="data" />
+                                <h:inputText id="data" label="Data Nascimento" styleClass="datepicker"
+                                             value="#{BeanUsers.usuario.birht}" size="10" maxlength="10"
+                                             >
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:inputText>
+                            </div>
+                            <div class="input-field col s6">
+                                <h:outputLabel value="Celular:" for="celular" />
+                                <h:inputText id="celular" label="Celular"
+                                             value="#{BeanUsers.usuario.celular}" size="10" />
+                            </div>
+                            <div class="input-field col s6">
+                                <h:outputLabel value="e-Mail:" for="email" />
+                                <h:panelGroup>
+                                    <h:inputText id="email" label="e-Mail"
+                                                 value="#{BeanUsers.usuario.email}" size="50" maxlength="50"
+                                                 required="true" validatorMessage="e-mail inválido">
+                                        <f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+                                    </h:inputText>
+                                    <h:message for="email" />
+                                </h:panelGroup>
+                            </div>
+                            <div class="input-field col s6">
+                                <h:outputLabel value="Login:" for="login" />
+                                <h:inputText id="login" label="Login"
+                                             value="#{BeanUsers.usuario.login}" size="15" maxlength="15"
+                                             required="true"
+                                             validatorMessage="Login deve ter no mínimo 5 e no máximo 15 caracteres e só pode ter os símbolos '.' e '_'.">
+                                    <f:validateRegex pattern="([a-z]|[0-9]|[.]|[_]){5,15}" />
+                                </h:inputText>
+                            </div>
+                            <div class="input-field col s6">
+                                <h:outputLabel value="Senha:" for="senha" />
+                                <h:inputSecret id="senha" label="Senha"
+                                               value="#{BeanUsers.usuario.senha}" size="10" maxlength="10"
+                                               required="true" redisplay="true" />
+                            </div><div class="input-field col s6">
+                                <h:outputLabel value="Confirmar Senha:" for="confirmarsenha" />
+                                <h:inputSecret id="confirmarsenha" label="Confirmar Senha"
+                                               value="#{BeanUsers.confirmarSenha}" size="10" maxlength="10"
+                                               required="true" redisplay="true" />
+                            </div>
 
+                        </div>
                     </div>
-                </div>
                     <div class="center">
-                        
-                    <h:commandButton action="#{BeanUsers.salvar}" class="waves-effect waves-light btn  botao z-depth-3 center center-align" value="Salvar" />
+
+                        <h:commandLink action="#{BeanUsers.salvar}" styleClass=" btn center-align botao waves-effect z-depth-3  green darken-1" value="Salvar"></h:commandLink>
                     </div>
                 </div>
-                 <div class="divBaixo indigo lighten-2"></div>
+                <div class="divBaixo indigo lighten-2"></div>
             </div>
         </h:form>
 

@@ -4,7 +4,6 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="stylesheet" href="#{resource['css:materialize.min.css']}" type="text/css"/>
         <link rel="stylesheet" href="#{resource['css:style.css']}" type="text/css"/>
@@ -13,14 +12,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"/>
+        <script type="text/javascript" src="#{resource['js:jquery-3.2.1.min.js']}"/>
         <script type="text/javascript" src="#{resource['js:materialize.min.js']}"/>
+        <script type="text/javascript" src="#{resource['js:scripts.js']}"/>
         <nav>
             <div class="nav-wrapper indigo lighten-3">
                 <h:graphicImage value="#{resource['imagens:logo_white.png']}" class="brand-logo center"/>
                 <ul id="nav-mobile" class="left">
                     <li>  <a id="menu" href="#">
-                            <i class="material-icons">home</i>
+                            <i class="material-icons">menu</i>
                         </a>   
                     </li>
                 </ul>
@@ -36,7 +36,7 @@
 
 
         <h:messages />
-        <div class="divDados  grey lighten-3">
+        <div class="divDados grey lighten-4">
             <div class="divCima indigo lighten-2">
                 <h4 class="white-text">Usuários</h4>
             </div>
@@ -46,50 +46,51 @@
                         <i class="material-icons">menu</i>
                     </a>
                     <ul>
-                        <li><a class="btn-floating red"><i class="material-icons">delete</i></a></li>
+                        <li><a class="btn-floating purple darken-4" href="index.jsf"><i class="material-icons">home</i></a></li>
+                        <li><a class="btn-floating red darken-1"><i class="material-icons">delete</i></a></li>
                         <li><a class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
                         <li><h:form>
-                                <h:commandLink id="menu" styleClass="btn-floating green" action="#{BeanUsers.cadastrar}"><i class="material-icons">add</i></h:commandLink>
+                                <h:commandLink id="menu" styleClass="btn-floating green darken-1" action="#{BeanUsers.cadastrar}"><i class="material-icons">add</i></h:commandLink>
                             </h:form></li>
                     </ul>
                 </div>
             </div>
             <div class="divBaixo indigo lighten-2"></div>
         </div>
-        <div class="box">
-
+        <div class="box grey lighten-4">
             <div class="divCima indigo lighten-2" style="height: 10px"></div>
-            <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped  highlight" >
+            <div class=" dadosListar container"> 
+                <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped" >
 
 
 
-                <h:column>
-                    <f:facet name="header">Ativo</f:facet>
-                        #{usuario.ativo}
-                </h:column> 
+                    <h:column>
+                        <f:facet name="header">Ativo</f:facet>
+                            #{usuario.ativo}
+                    </h:column> 
 
-                <h:column>
-                    <f:facet name="header">Cargo</f:facet>
-                        #{usuario.office}
-                </h:column> 
+                    <h:column>
+                        <f:facet name="header">Cargo</f:facet>
+                            #{usuario.office}
+                    </h:column> 
 
-                <h:column>
-                    <f:facet name="header">Telefone</f:facet>
-                        #{usuario.celular}
-                </h:column> 
-                <h:column>
-                    <f:facet name="header">Nome</f:facet>
-                        #{usuario.nome}
-                </h:column> 
-                <h:column>
-                    <f:facet name="header">E-mail</f:facet>
-                        #{usuario.email}
-                </h:column> 
+                    <h:column>
+                        <f:facet name="header">Telefone</f:facet>
+                            #{usuario.celular}
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Nome</f:facet>
+                            #{usuario.nome}
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">E-mail</f:facet>
+                            #{usuario.email}
+                    </h:column> 
 
-            </h:dataTable>
+                </h:dataTable>
 
-
-
+            </div>
+            <div class="divBaixo indigo lighten-2"></div>
         </div>
     </h:body>
 
