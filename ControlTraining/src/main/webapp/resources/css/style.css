@@ -12,7 +12,9 @@
     margin-left: 40px;
     margin: 3px;
 
-
+}
+.btn{
+    margin: 10px;
 }
 .box{
     border-radius: 8px 8px 6px 6px;
@@ -25,23 +27,22 @@
     margin:  10px;
 }
 .dadosListar{
-    width: 100%;
+    width: 90%;
     height:95%;
     margin: 50px;
 }
 .centroListar{
-    
+
     /*padding-left: 100px;*/
-    
-    
+
+
 }
 .divDados{
     width: 70%;
-    left: 50%;
     transform: translateX(22%);
     box-shadow: 1px 2px 3px 0.5px rgba(0,0,1,0.6);  
     border-radius: 8px 8px 6px 6px;
-    height: 100px;
+    position: relative;
 }
 .divCima{
     border-radius: 8px 8px 0 0;
@@ -58,7 +59,7 @@
     bottom:0;
 }
 .dados{
-    width: 100%;
+    width: 95%;
     height: 50px;
 
 }
@@ -73,9 +74,37 @@
     line-height: 45px;
 }
 .fixed-action-btn.horizontal {
-    padding: 13px 26px 1px 3px;
-    padding-top: 13px;
+    padding: 0px 26px 1px 3px;
+    padding-top: 0px;
     padding-right: 26px;
     padding-bottom: 1px;
     padding-left: 3px;
+    position: static;
+}
+.fixed-action-btn.horizontal ul {
+    text-align: right;
+    right: 63px;
+    
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 100%;
+    left: auto;
+    width: 482px;
+}
+.btn-floating {
+    display: inline-block;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 41px;
+    height: 37px; 
+    line-height: 40px;
+    padding: 0;
+    background-color: #26a69a;
+    border-radius: 21%;
+    -webkit-transition: .3s;
+    transition: .3s;
+    cursor: pointer;
+    vertical-align: middle;
 }

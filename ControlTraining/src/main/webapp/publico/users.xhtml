@@ -10,13 +10,20 @@
         <title>Usuários</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
     </h:head>
+    <style>
+        .fixed-action-btn.horizontal ul {
+        top: 46%;
+        }
+        
+    </style>
     <h:body>
         <script type="text/javascript" src="#{resource['js:jquery-3.2.1.min.js']}"/>
         <script type="text/javascript" src="#{resource['js:materialize.min.js']}"/>
         <script type="text/javascript" src="#{resource['js:scripts.js']}"/>
         <nav>
-            <div class="nav-wrapper indigo lighten-3">
+            <div class="nav-wrapper indigo lighten-1">
                 <h:graphicImage value="#{resource['imagens:logo_white.png']}" class="brand-logo center"/>
                 <ul id="nav-mobile" class="left">
                     <li>  <a id="menu" href="#">
@@ -36,29 +43,25 @@
 
 
         <h:messages />
-        <div class="divDados grey lighten-4">
+        <div class="divDados  grey lighten-4">
+
             <div class="divCima indigo lighten-2">
-                <h4 class="white-text">Usuários</h4>
-            </div>
-            <div class="dados">
-                <div class="fixed-action-btn horizontal">
-                    <a class="btn-floating btn-large indigo lighten-4 ">
+                
+                <div class="fixed-action-btn horizontal click-to-toggle right ">
+                    <a class="btn-floating  indigo lighten-1 z-depth-3">
                         <i class="material-icons">menu</i>
                     </a>
                     <ul>
-                        <li><a class="btn-floating purple darken-4" href="index.jsf"><i class="material-icons">home</i></a></li>
-                        <li><a class="btn-floating red darken-1"><i class="material-icons">delete</i></a></li>
-                        <li><a class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+                        <li><a class="btn-floating purple darken-4 z-depth-3"  href="../index.jsf"><i class="material-icons">home</i></a></li>
+                        <li><a class="btn-floating red darken-1 z-depth-3"><i class="material-icons">delete</i></a></li>
+                        <li><a class="btn-floating yellow darken-1 z-depth-3"><i class="material-icons">mode_edit</i></a></li>
                         <li><h:form>
-                                <h:commandLink id="menu" styleClass="btn-floating green darken-1" action="#{BeanUsers.cadastrar}"><i class="material-icons">add</i></h:commandLink>
+                                <h:commandLink id="menu" styleClass="btn-floating green darken-1 z-depth-3" action="#{BeanUsers.cadastrar}"><i class="material-icons">add</i></h:commandLink>
                             </h:form></li>
                     </ul>
                 </div>
+                <h4 class="white-text" style="text-align: center">Usuários</h4>
             </div>
-            <div class="divBaixo indigo lighten-2"></div>
-        </div>
-        <div class="box grey lighten-4">
-            <div class="divCima indigo lighten-2" style="height: 10px"></div>
             <div class=" dadosListar container"> 
                 <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped" >
 
