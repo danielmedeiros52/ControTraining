@@ -10,13 +10,13 @@
         <title>Usuários</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
+
     </h:head>
     <style>
         .fixed-action-btn.horizontal ul {
-        top: 47%;
+            top: 47%;
         }
-        
+
     </style>
     <h:body>
         <script type="text/javascript" src="#{resource['js:jquery-3.2.1.min.js']}"/>
@@ -46,7 +46,7 @@
         <div class="divDados  grey lighten-4">
 
             <div class="divCima indigo lighten-2">
-                
+
                 <div class="fixed-action-btn horizontal click-to-toggle right ">
                     <a class="btn-floating  indigo lighten-1 z-depth-3">
                         <i class="material-icons">menu</i>
@@ -63,36 +63,46 @@
                 <h4 class="white-text" style="text-align: center">Usuários</h4>
             </div>
             <div class=" dadosListar container"> 
-                <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped" >
 
+                <h:form>
 
+                    <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped" >
 
-                    <h:column>
-                        <f:facet name="header">Ativo</f:facet>
-                            #{usuario.ativo}
-                    </h:column> 
+                        <h:column>
+                            <f:facet name="header">Selecionar</f:facet>
+                            <h:selectOneRadio value="#{BeanUsers.usuario}"  id="myGroup1" onclick="selectOneRadio(this)">
+                                <f:selectItem    itemValue="#{usuario.id}"  />
+                            </h:selectOneRadio>
+                        </h:column>
 
-                    <h:column>
-                        <f:facet name="header">Cargo</f:facet>
-                            #{usuario.office}
-                    </h:column> 
+                        <h:column>
+                            <f:facet name="header">Ativo</f:facet>
+                                #{usuario.ativo}
+                        </h:column> 
+                        <h:column>
+                            <f:facet name="header">Nome</f:facet>
+                                #{usuario.nome}
+                        </h:column> 
+                        <h:column>
+                            <f:facet name="header">Cargo</f:facet>
+                                #{usuario.office}
+                        </h:column> 
 
-                    <h:column>
-                        <f:facet name="header">Telefone</f:facet>
-                            #{usuario.celular}
-                    </h:column> 
-                    <h:column>
-                        <f:facet name="header">Nome</f:facet>
-                            #{usuario.nome}
-                    </h:column> 
-                    <h:column>
-                        <f:facet name="header">E-mail</f:facet>
-                            #{usuario.email}
-                    </h:column> 
+                        <h:column>
+                            <f:facet name="header">Telefone</f:facet>
+                                #{usuario.celular}
+                        </h:column> 
+                         
+                        <h:column>
+                            <f:facet name="header">E-mail</f:facet>
+                                #{usuario.email}
+                        </h:column> 
 
-                </h:dataTable>
+                    </h:dataTable>
 
+                </h:form>
             </div>
+            #{usuario.id}
             <div class="divBaixo indigo lighten-2"></div>
         </div>
     </h:body>

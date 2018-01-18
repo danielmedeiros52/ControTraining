@@ -7,11 +7,15 @@ $(document).ready(function () {
     $('select').material_select();
 });
 
-$('#datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    closeOnSelect: false // Close upon selecting a date,
-});
+function selectOneRadio(radio) {
+    var id = radio.name.substring(radio.name.lastIndexOf(':'));
+    var el = radio.form.elements;
+    for (var i = 0; i < el.length; i++) {
+        if (el[i].name.substring(el[i].name.lastIndexOf(':')) == id) {
+            el[i].checked = false;
+        }
+    }
+    radio.checked = true;
+}
+
+
