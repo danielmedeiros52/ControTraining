@@ -53,7 +53,7 @@ public class BeanUsers {
         UsersBO usersBO = new UsersBO();
         usersBO.salvar(this.usuario);
 
-        return "usuariosucesso";
+        return "/publico/users";
     }
 
     public Users getUsuario() {
