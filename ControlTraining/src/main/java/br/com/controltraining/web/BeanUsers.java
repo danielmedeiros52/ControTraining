@@ -2,11 +2,14 @@ package br.com.controltraining.web;
 
 import br.com.controltraining.users.Users;
 import br.com.controltraining.users.UsersBO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+import javax.faces.component.html.HtmlDataTable;
 
 @ManagedBean(name = "BeanUsers")
 @RequestScoped
@@ -15,6 +18,7 @@ public class BeanUsers {
     private Users usuario = new Users();
     private String confirmarSenha;
     private List<Users> lista;
+    private HtmlDataTable dataTable;
 
     public List<Users> listar() {
         if (this.lista == null) {
@@ -26,9 +30,10 @@ public class BeanUsers {
     }
 
     public String users() {
-		
-		return "/publico/users";
+
+        return "/publico/users";
     }
+
     public String cadastrar() {
         this.usuario = new Users();
         this.usuario.setAtivo(true);
@@ -45,8 +50,8 @@ public class BeanUsers {
             return null;
         }
 
-        UsersBO UsersBO = new UsersBO();
-        UsersBO.salvar(this.usuario);
+        UsersBO usersBO = new UsersBO();
+        usersBO.salvar(this.usuario);
 
         return "usuariosucesso";
     }
@@ -67,4 +72,37 @@ public class BeanUsers {
         this.confirmarSenha = confirmarSenha;
     }
 
+    public String editar() {
+
+//       this.usuario = usuario.getSelectedItem();
+        this.confirmarSenha = this.usuario.getSenha();
+
+        return "/publico/cadUsers";
+    }
+
+    public void setSelectedItem(ValueChangeEvent event) {
+
+        usuario = (Users) dataTable.getRowData();
+
+    }
+
+    public void getSelectedItem() {
+
+        ArrayList<Users> selectedDataList = new ArrayList<Users>();
+        selectedDataList.add(usuario);
+
+        
+    }
+
+    ;
+
+
+
+         public HtmlDataTable getDataTable() {
+        return dataTable;
+    }
+
+    public void setDataTable(HtmlDataTable dataTable) {
+        this.dataTable = dataTable;
+    }
 }

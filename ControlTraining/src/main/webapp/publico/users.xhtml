@@ -54,9 +54,17 @@
                     <ul>
                         <li><a class="btn-floating purple darken-4 z-depth-3"  href="../index.jsf"><i class="material-icons">home</i></a></li>
                         <li><a class="btn-floating red darken-1 z-depth-3"><i class="material-icons">delete</i></a></li>
-                        <li><a class="btn-floating yellow darken-1 z-depth-3"><i class="material-icons">mode_edit</i></a></li>
                         <li><h:form>
-                                <h:commandLink id="menu" styleClass="btn-floating green darken-1 z-depth-3" action="#{BeanUsers.cadastrar}"><i class="material-icons">add</i></h:commandLink>
+                                <h:commandLink id="menu" styleClass="btn-floating yellow darken-1 z-depth-3" action="#{BeanUsers.editar()}">
+                                    <i class="material-icons">mode_edit</i>
+                                    <f:setPropertyActionListener target="#{BeanUsers.selectedItem}"
+                                                                 value="#{usuario}" />
+                                </h:commandLink>
+                            </h:form></li>
+                        <li><h:form>
+                                <h:commandLink id="menu" styleClass="btn-floating green darken-1 z-depth-3" action="#{BeanUsers.cadastrar}">
+                                    <i class="material-icons">add</i>
+                                </h:commandLink>
                             </h:form></li>
                     </ul>
                 </div>
@@ -66,18 +74,21 @@
 
                 <h:form>
 
-                    <h:dataTable value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped" >
+                    <h:dataTable binding="#{BeanUsers.dataTable}" value="#{BeanUsers.listar()}" var="usuario" rules="row" cellpadding="5" styleClass="bordered striped" >
+                        <f:facet name="header">Selecionar</f:facet>
 
                         <h:column>
-                            <f:facet name="header">Selecionar</f:facet>
-                            <h:selectOneRadio value="#{BeanUsers.usuario}"  id="myGroup1" onclick="selectOneRadio(this)">
-                                <f:selectItem    itemValue="#{usuario.id}"  />
+                            <h:selectOneRadio value="#{BeanUsers.usuario}"  valueChangeListener="#{BeanUsers.setSelectedItem}" onclick="selectOneRadio(this)">
+                                <f:selectItem    itemValue="#{usuario}"  />
                             </h:selectOneRadio>
                         </h:column>
+                        <h:column>
 
+                        </h:column>
                         <h:column>
                             <f:facet name="header">Ativo</f:facet>
                                 #{usuario.ativo}
+
                         </h:column> 
                         <h:column>
                             <f:facet name="header">Nome</f:facet>
@@ -92,7 +103,7 @@
                             <f:facet name="header">Telefone</f:facet>
                                 #{usuario.celular}
                         </h:column> 
-                         
+
                         <h:column>
                             <f:facet name="header">E-mail</f:facet>
                                 #{usuario.email}
